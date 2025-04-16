@@ -30,14 +30,62 @@
       color: #00ffcc;
       margin-top: 20px;
     }
+
+    .comment {
+      background: #111c2b;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 15px;
+      max-width: 700px;
+      display: flex;
+      align-items: center;
+    }
+
+    .comment img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .comment-info span:first-child {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 
 <body>
-  <div>
+  <div class="section">
     <h1>اضغط للحصول على الإشارة</h1>
     <button class="button" id="get-signal-btn">✅ احصل على الإشارة</button>
     <div id="signal-display"></div>
+  </div>
+
+  <div class="section">
+    <h2>تعليقات من المستخدمين</h2>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="avatar">
+      <div class="comment-info">
+        <span>أحمد عرافي</span>
+        <span>شكرًا لفييرات، دفعت قرض البنك وأنا الآن هنا بعيدًا عن الفوائد</span>
+      </div>
+    </div>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="avatar">
+      <div class="comment-info">
+        <span>سودو بندارا</span>
+        <span>كنت أشك في البداية، لكن الآن أصبحت ألعب كل يوم</span>
+      </div>
+    </div>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="avatar">
+      <div class="comment-info">
+        <span>ناديسها كوماري</span>
+        <span>أعيش الآن حياة حرة، شكرًا لفييرات!</span>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -47,15 +95,22 @@
     document.getElementById('get-signal-btn').addEventListener('click', function () {
       const display = document.getElementById('signal-display');
 
-      // Показываем первый сигнал
-      display.style.color = 'red'; // Текст красный
-      display.style.fontSize = '3em'; // Увеличение текста в 2 раза
-      display.textContent = '🚀 إشارة جديدة جاهزة: ×1.81';
+      if (!signalGiven) {
+        // Показываем первый сигнал с увеличением размера текста и красным цветом
+        display.style.color = 'red'; // Текст красный
+        display.style.fontSize = '3em'; // Увеличение текста в 2 раза
+        display.textContent = '🚀 إشارة جديدة جاهزة: ×1.81';
 
-      // Через 6 секунд меняем сигнал на 2.26
-      setTimeout(function () {
-        display.textContent = '🚀 إشارة جديدة جاهزة: ×2.26';
-      }, 6000); // через 6 секунд
+        // Через 6 секунд меняем сигнал на 2.26
+        setTimeout(function () {
+          display.textContent = '🚀 إشارة جديدة جاهزة: ×2.26';
+        }, 6000); // 6000 миллисекунд = 6 секунд
+
+        signalGiven = true;
+      } else {
+        // После второго нажатия показываем уведомление о регистрации
+        alert("للحصول على الإشارة، يجب أولاً التسجيل في الموقع.");
+      }
     });
   </script>
 </body>
