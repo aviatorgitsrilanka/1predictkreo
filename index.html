@@ -25,28 +25,39 @@
       cursor: pointer;
     }
 
-    .button-green {
-      background: linear-gradient(45deg, #0f0, #0c0);
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-      animation: pulse 1.5s infinite;
-      color: black;
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 10px #0f0;
-      }
-
-      50% {
-        box-shadow: 0 0 30px #0f0;
-      }
-
-      100% {
-        box-shadow: 0 0 10px #0f0;
-      }
-    }
-
     #signal-display {
       font-size: 1.5em;
       color: #00ffcc;
-      margin-top:
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>اضغط للحصول على الإشارة</h1>
+    <button class="button" id="get-signal-btn">✅ احصل على الإشارة</button>
+    <div id="signal-display"></div>
+  </div>
+
+  <script>
+    let signalGiven = false;
+
+    // Обработчик клика по кнопке
+    document.getElementById('get-signal-btn').addEventListener('click', function () {
+      const display = document.getElementById('signal-display');
+
+      // Показываем первый сигнал
+      display.style.color = 'red'; // Текст красный
+      display.style.fontSize = '3em'; // Увеличение текста в 2 раза
+      display.textContent = '🚀 إشارة جديدة جاهزة: ×1.81';
+
+      // Через 6 секунд меняем сигнал на 2.26
+      setTimeout(function () {
+        display.textContent = '🚀 إشارة جديدة جاهزة: ×2.26';
+      }, 6000); // через 6 секунд
+    });
+  </script>
+</body>
+
+</html>
