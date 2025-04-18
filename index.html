@@ -1,118 +1,122 @@
 <!DOCTYPE html>
-<html lang="ar">
-
+<html lang="si">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة الهبوط</title>
+  <title>VIRAT HACK PROGRAMM ver4.3</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #222;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
       color: white;
+      overflow-x: hidden;
+    }
+
+    /* Верхний текст мигающий */
+    .header-text {
+      font-size: 40px;
       text-align: center;
+      margin-top: 50px;
+      animation: blink 1s infinite alternate;
     }
 
-    .button {
-      background: linear-gradient(45deg, #d4145a, #fbb03b);
-      border: none;
-      border-radius: 20px;
-      color: white;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 1.2em;
-      cursor: pointer;
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
-    #signal-display {
-      font-size: 1.5em;
-      color: #00ffcc;
+    /* Фото на главной */
+    .photo {
+      width: 100%;
+      max-width: 100%;
+      display: block;
       margin-top: 20px;
     }
 
-    .comment {
-      background: #111c2b;
-      margin: 10px auto;
-      padding: 15px;
-      border-radius: 15px;
-      max-width: 700px;
-      display: flex;
-      align-items: center;
-    }
-
-    .comment img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-right: 15px;
-    }
-
-    .comment-info span:first-child {
+    /* Кнопка */
+    .button {
       display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
+      width: 80%;
+      margin: 30px auto;
+      padding: 15px;
+      font-size: 18px;
+      text-align: center;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    .button:hover {
+      background-color: #218838;
+    }
+
+    /* Мигать кнопкой */
+    .button.blinking {
+      animation: blinkButton 1s infinite alternate;
+    }
+
+    @keyframes blinkButton {
+      0% {
+        background-color: #28a745;
+      }
+      50% {
+        background-color: #1e7e34;
+      }
+      100% {
+        background-color: #28a745;
+      }
+    }
+
+    .button.active {
+      background-color: #dc3545;
+    }
+
+    /* Второе фото */
+    .second-photo {
+      width: 100%;
+      max-width: 100%;
+      display: none;
+      margin-top: 30px;
+    }
+
+    /* Настройки для мобильного отображения */
+    @media (max-width: 430px) {
+      .header-text {
+        font-size: 30px;
+      }
+    }
+
   </style>
 </head>
-
 <body>
-  <div class="section">
-    <h1>اضغط للحصول على الإشارة</h1>
-    <button class="button" id="get-signal-btn">✅ احصل على الإشارة</button>
-    <div id="signal-display"></div>
-  </div>
+  <div class="header-text">VIRAT HACK PROGRAMM ver4.3</div>
+  <!-- Используем ваши изображения с GitHub -->
+  <img src="https://github.com/aviatorgitsrilanka/1predictkreo/blob/main/ChatGPT%20Image%2015%20апр.%202025%20г.,%2013_11_55.png?raw=true" alt="Team Aviator" class="photo">
+  
+  <button class="button blinking" id="getSignalButton">Получить сигнал "Авиатор" (сингальский)</button>
 
-  <div class="section">
-    <h2>تعليقات من المستخدمين</h2>
-    <div class="comment">
-      <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="avatar">
-      <div class="comment-info">
-        <span>أحمد عرافي</span>
-        <span>شكرًا لفييرات، دفعت قرض البنك وأنا الآن هنا بعيدًا عن الفوائد</span>
-      </div>
-    </div>
-    <div class="comment">
-      <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="avatar">
-      <div class="comment-info">
-        <span>سودو بندارا</span>
-        <span>كنت أشك في البداية، لكن الآن أصبحت ألعب كل يوم</span>
-      </div>
-    </div>
-    <div class="comment">
-      <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="avatar">
-      <div class="comment-info">
-        <span>ناديسها كوماري</span>
-        <span>أعيش الآن حياة حرة، شكرًا لفييرات!</span>
-      </div>
-    </div>
-  </div>
+  <img src="https://github.com/aviatorgitsrilanka/1predictkreo/blob/main/Снимок%20экрана%202025-04-18%20в%2016.30.07.png?raw=true" alt="Signal" class="second-photo" id="secondImage">
 
   <script>
-    let signalGiven = false;
+    const getSignalButton = document.getElementById("getSignalButton");
+    const secondImage = document.getElementById("secondImage");
 
-    // Обработчик клика по кнопке
-    document.getElementById('get-signal-btn').addEventListener('click', function () {
-      const display = document.getElementById('signal-display');
-
-      if (!signalGiven) {
-        // Показываем первый сигнал с увеличением размера текста и красным цветом
-        display.style.color = 'red'; // Текст красный
-        display.style.fontSize = '3em'; // Увеличение текста в 2 раза
-        display.textContent = '🚀 إشارة جديدة جاهزة: ×1.81';
-
-        // Через 6 секунд меняем сигнал на 2.26
-        setTimeout(function () {
-          display.textContent = '🚀 إشارة جديدة جاهزة: ×2.26';
-        }, 6000); // 6000 миллисекунд = 6 секунд
-
-        signalGiven = true;
-      } else {
-        // После второго нажатия показываем уведомление о регистрации
-        alert("للحصول على الإشارة، يجب أولاً التسجيل في الموقع.");
-      }
+    getSignalButton.addEventListener("click", () => {
+      getSignalButton.classList.remove("blinking");
+      getSignalButton.classList.add("active");
+      secondImage.style.display = "block";  // Показываем второе изображение
     });
   </script>
 </body>
-
 </html>
