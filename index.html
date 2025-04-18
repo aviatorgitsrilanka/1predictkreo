@@ -13,9 +13,11 @@
       overflow-x: hidden;
     }
 
-    /* Верхний текст мигающий */
+    /* Верхний текст мигающий, жирный и зелёный */
     .header-text {
-      font-size: 40px;
+      font-size: 50px;
+      font-weight: bold;
+      color: #28a745;
       text-align: center;
       margin-top: 50px;
       animation: blink 1s infinite alternate;
@@ -41,40 +43,36 @@
       margin-top: 20px;
     }
 
-    /* Кнопка */
+    /* Кнопка - мигающая и подсвеченная */
     .button {
       display: block;
       width: 80%;
       margin: 30px auto;
       padding: 15px;
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: bold;
       text-align: center;
       background-color: #28a745;
       border: none;
       color: white;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #218838;
-    }
-
-    /* Мигать кнопкой */
-    .button.blinking {
+      transition: background-color 0.3s ease, transform 0.3s ease;
       animation: blinkButton 1s infinite alternate;
     }
 
     @keyframes blinkButton {
       0% {
         background-color: #28a745;
+        transform: scale(1);
       }
       50% {
-        background-color: #1e7e34;
+        background-color: #218838;
+        transform: scale(1.1);
       }
       100% {
         background-color: #28a745;
+        transform: scale(1);
       }
     }
 
@@ -82,18 +80,36 @@
       background-color: #dc3545;
     }
 
-    /* Второе фото */
+    /* Второе фото с эффектом пульсации (сердцебиение) */
     .second-photo {
       width: 100%;
       max-width: 100%;
       display: none;
       margin-top: 30px;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
 
     /* Настройки для мобильного отображения */
     @media (max-width: 430px) {
       .header-text {
-        font-size: 30px;
+        font-size: 40px;
+      }
+
+      .button {
+        font-size: 18px;
+        padding: 12px;
       }
     }
 
@@ -101,21 +117,23 @@
 </head>
 <body>
   <div class="header-text">VIRAT HACK PROGRAMM ver4.3</div>
-  <!-- Используем ваши изображения с GitHub -->
+  <!-- Фото с командой -->
   <img src="https://github.com/aviatorgitsrilanka/1predictkreo/blob/main/ChatGPT%20Image%2015%20апр.%202025%20г.,%2013_11_55.png?raw=true" alt="Team Aviator" class="photo">
   
-  <button class="button blinking" id="getSignalButton">AVIATOR සඳහා සංඥාව ලබා ගන්න</button>
+  <!-- Мигающая кнопка -->
+  <button class="button" id="getSignalButton">AVIATOR සඳහා සංඥාව ලබා ගන්න</button>
 
+  <!-- Фото с цифрами -->
   <img src="https://github.com/aviatorgitsrilanka/1predictkreo/blob/main/6B40D6BF-C902-4062-9E20-DF9C781796D4.PNG?raw=true" alt="Signal" class="second-photo" id="secondImage">
 
   <script>
     const getSignalButton = document.getElementById("getSignalButton");
     const secondImage = document.getElementById("secondImage");
 
+    // Обработчик нажатия на кнопку
     getSignalButton.addEventListener("click", () => {
-      getSignalButton.classList.remove("blinking");
-      getSignalButton.classList.add("active");
-      secondImage.style.display = "block";  // Показываем второе изображение
+      getSignalButton.classList.add("active");  // Меняем цвет кнопки на красный
+      secondImage.style.display = "block";  // Показываем второе изображение с цифрами
     });
   </script>
 </body>
